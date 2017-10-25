@@ -53,7 +53,7 @@ public class SearchActivity extends BaseActivity{
                 if(TextUtils.isEmpty(editTextInput)){
                     MyToastUtils.show(SearchActivity.this,"请输入查询内容");
                      return;
-                }
+                }  //继续写着玩
                 Log.i(TAG, "onClick:输入内容 "+editTextInput);
                 cusrom_searchview.saveHistory(editTextInput);
                 cusrom_searchview.setEditTextInputNull();
@@ -65,7 +65,7 @@ public class SearchActivity extends BaseActivity{
                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                 }
             }
-        }); //....在建分支
+        }); //哈哈 完.....
         toolbar.leftButtonOnClick(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
