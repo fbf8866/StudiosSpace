@@ -53,7 +53,7 @@ public class SearchActivity extends BaseActivity{
                 if(TextUtils.isEmpty(editTextInput)){
                     MyToastUtils.show(SearchActivity.this,"请输入查询内容");
                      return;
-                }
+                }  //
                 Log.i(TAG, "onClick:输入内容 "+editTextInput);
                 cusrom_searchview.saveHistory(editTextInput);
                 cusrom_searchview.setEditTextInputNull();
