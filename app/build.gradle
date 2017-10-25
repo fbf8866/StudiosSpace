@@ -1,0 +1,106 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25 //编译应用的版本
+    buildToolsVersion '21.1.2'
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.example.magic.myapplication"
+        minSdkVersion 17 //限制安装application的所需最低系统版本 4.1系统
+        targetSdkVersion 25
+        versionCode 1
+        versionName "2.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // dex突破65535的限制
+        multiDexEnabled true
+        // AndroidManifest.xml 里面UMENG_CHANNEL的value为 ${UMENG_CHANNEL_VALUE}
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "channel_name"]
+    }
+
+
+    /*** 签名*/
+    signingConfigs {
+        debug{
+            storeFile file("C:/Users/Administrator/Desktop/s/key.store.jks")      //签名文件
+            storePassword "123456"
+            keyAlias "test"
+            keyPassword "123456"  //签名密码
+        }
+        release{
+            storeFile file("C:/Users/Administrator/Desktop/s/key.store.jks")      //签名文件
+            storePassword "123456"
+            keyAlias "test"
+            keyPassword "123456"  //签名密码
+        }
+
+    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆
+            minifyEnabled true
+
+            //Zipalign优化
+//            zipAlignEnabled true
+
+            // 移除无用的resource文件
+//            shrinkResources true
+            //加载默认混淆配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+            signingConfig signingConfigs.release
+        }
+    }
+
+
+        /**多渠道打包*/
+    productFlavors {
+        xiaomi {}
+        wandoujia {}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName = outputFile.name.replace(".apk", "-${defaultConfig.versionName}.apk")
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(path: ':IndicatorLibrary')
+    compile 'com.android.support:appcompat-v7:23.0.+'
+    compile 'com.android.support:recyclerview-v7:23.0.+'
+    compile 'com.android.support:cardview-v7:23.0.+'
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    compile files('libs/gson-2.2.4.jar')
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    //图片加载库
+    //引用张弘扬的okhttp
+    compile 'com.zhy:okhttputils:2.6.2'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:25.0.+'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //使用三方图片加载库
+    compile project(':xAlertDialogLibrary')
+}

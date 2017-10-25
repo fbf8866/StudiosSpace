@@ -1,0 +1,60 @@
+<resources>
+
+    <!-- Base application theme. --><!--白天模式-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/bg_sunday_of_toolbar</item>
+        <item name="colorPrimaryDark">@color/bg_sunday_of_toolbar</item>
+        <item name="colorAccent">@color/bg_sunday_of_toolbar</item>
+
+        <item name="android:textColor">@color/text_color_sunday</item>
+        <item name="background_color">@color/bg_sunday</item>
+        <item name="background_color_of_toolbar">@color/bg_sunday_of_toolbar</item>
+        <item name="text_color">@color/text_color_sunday</item>
+    </style>
+
+    <!--夜晚模式 background_color和background_color_of_toolbar记得要自定义属性-->
+    <style name="moonAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/bg_moon_of_toolbar</item>
+        <item name="android:textColor">@color/text_color_moon</item>
+        <item name="background_color">@color/bg_moon</item>
+        <item name="background_color_of_toolbar">@color/bg_moon_of_toolbar</item>
+        <item name="text_color">@color/text_color_moon</item>
+    </style>
+
+
+    <!--这里是空的,因为在5.0之前系统是无法指定状态栏的颜色的-->
+    <style name="videoTheme" parent="AppTheme"></style>
+
+    <style name="videoTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="dialog_style" parent="@android:style/Theme.Dialog">
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--是否显示title-->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景是否模糊显示 -->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="videoTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="videoTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--弹出选择头像对话框的公共属性-->
+    <style name="dialog_icon_people_common">
+        <item name="android:layout_width">@dimen/x100</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">@dimen/y3</item>
+        <item name="android:background">@drawable/dialog_selector</item>
+    </style>
+    
+    
+</resources>

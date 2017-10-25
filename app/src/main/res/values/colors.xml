@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_text_normal">#D7D7D7</color>
+    <color name="color_text_select">#FF4081</color>
+
+    <color name="color_clean_button">#d9d6c3</color>
+
+
+<!--白天模式下的颜色-->
+    <color name="text_color_sunday">#FF000000</color>
+    <color name="bg_sunday">#D7D7D7</color>
+    <color name="bg_sunday_of_toolbar">#FF9988</color>
+<!--夜晚模式下的颜色-->
+    <color name="text_color_moon">#D7D7D7</color>
+    <color name="bg_moon">#FF000000</color>
+    <color name="bg_moon_of_toolbar">#FF000000</color>
+
+</resources>

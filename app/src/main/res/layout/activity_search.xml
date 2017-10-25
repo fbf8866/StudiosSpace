@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/background_color"
+    android:fitsSystemWindows="true">
+
+
+        <include layout="@layout/layout_custom_toolbar"/>
+
+        <com.example.magic.myapplication.common.CustomSearchView
+            android:id="@+id/cusrom_searchview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fitsSystemWindows="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            app:child_edittext_bg="@drawable/edittext_bg"
+            app:child_delete_img="@drawable/delete_common"
+            app:child_edittext_hint="请输入搜索内容"
+            app:child_button_clean_text="删除历史记录"
+            app:child_button_clean_bg="?attr/background_color"
+            app:child_button_clean_text_color="?attr/text_color"
+            />
+
+
+
+</LinearLayout>

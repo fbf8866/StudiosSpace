@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.magic.myapplication.common.CustomToolBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:background="?attr/background_color_of_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:right_img="@drawable/search"
+        app:left_img="@drawable/back"
+        android:fitsSystemWindows="true"
+        app:layout_scrollFlags="scroll|enterAlways">
+
+</com.example.magic.myapplication.common.CustomToolBar>

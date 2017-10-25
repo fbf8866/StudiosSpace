@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@drawable/dialog_style_bg">
+
+    <Button
+        android:text="拍照"
+        android:id="@+id/btn_take_pic"
+        style="@style/dialog_icon_people_common"/>
+
+    <Button
+        android:text="相册选择"
+        android:id="@+id/btn_get_pic"
+        style="@style/dialog_icon_people_common"/>
+
+    <Button
+        android:text="取消"
+        android:id="@+id/btn_cancle"
+        style="@style/dialog_icon_people_common"/>
+
+</LinearLayout>

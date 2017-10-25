@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义夜间和白天模式的属性-->
+    <attr name="background_color" format="color|reference"></attr>
+    <attr name="background_color_of_toolbar" format="color|reference"></attr>
+    <attr name="text_color" format="color|reference"></attr>
+
+    <declare-styleable name="customprogressbar" >
+        <attr name="pbtext" format="string"/>
+        <attr name="pbtextsize" format="dimension"/>
+        <attr name="pbtextcolor" format="color"/>
+    </declare-styleable>
+
+    <!--自定义toolbar的属性-->
+    <declare-styleable name="custom_toolbar">
+        <attr name="right_img" format="reference"/>
+        <attr name="left_img" format="reference"/>
+    </declare-styleable>
+
+    <!--自定义搜索框的属性-->
+    <declare-styleable name="custom_search">
+        <attr name="child_edittext_bg" format="reference"/>
+        <attr name="child_delete_img" format="reference"/>
+        <attr name="child_edittext_hint" format="string"/>
+        <attr name="child_button_clean_bg" format="reference"/>
+        <attr name="child_button_clean_text_color" format="reference"/>
+        <attr name="child_button_clean_text" format="string"/>
+    </declare-styleable>
+
+
+
+    <!--以下是自定义开关的自定义属性-->
+    <declare-styleable name="slideswitch">
+        <attr name="themeColor" format="color" />
+        <attr name="isOpen" format="boolean" />
+        <attr name="shape">
+            <enum name="rect" value="1" />
+            <enum name="circle" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="LockPatternView">
+        <attr name="aspect">
+            <enum name="square" value="0" />
+            <enum name="lockWidth" value="1" />
+            <enum name="lockHeight" value="2" />
+        </attr>
+        <attr name="line" format="color" />
+        <attr name="btnNormal" format="reference" />
+        <attr name="btnTouched" format="reference" />
+        <attr name="circleNormal" format="reference" />
+        <attr name="circleGreen" format="reference" />
+        <attr name="circleRed" format="reference" />
+        <attr name="arrowGreenUp" format="reference" />
+        <attr name="arrowRedUp" format="reference" />
+    </declare-styleable>
+
+</resources>
