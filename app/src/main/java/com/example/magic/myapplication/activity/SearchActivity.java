@@ -65,7 +65,7 @@ public class SearchActivity extends BaseActivity{
                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                 }
             }
-        }); //哈哈 建分支,.....
+        }); //哈哈 继续写着玩,.....
         toolbar.leftButtonOnClick(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
