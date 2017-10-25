@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CustomPb/CustomPb.iml" filepath="$PROJECT_DIR$/CustomPb/CustomPb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IndicatorLibrary/IndicatorLibrary.iml" filepath="$PROJECT_DIR$/IndicatorLibrary/IndicatorLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudiosSpace.iml" filepath="$PROJECT_DIR$/StudiosSpace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/material_5.0/material_5.0.iml" filepath="$PROJECT_DIR$/material_5.0/material_5.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teststudiosdemo/teststudiosdemo.iml" filepath="$PROJECT_DIR$/teststudiosdemo/teststudiosdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xAlertDialogLibrary/xAlertDialogLibrary.iml" filepath="$PROJECT_DIR$/xAlertDialogLibrary/xAlertDialogLibrary.iml" />
+    </modules>
+  </component>
+</project>
