@@ -64,7 +64,7 @@ public class SearchActivity extends BaseActivity{
                             .setConfirmText("确定")
                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                 }
-            }// test_again
+            }
         });
         toolbar.leftButtonOnClick(new View.OnClickListener() {
             @Override
@@ -72,7 +72,7 @@ public class SearchActivity extends BaseActivity{
                 Log.i(TAG, "onClick: 点击左侧内容");
                 finish();
             }
-        });
+        }); //test_again
     }
 
     @Override
