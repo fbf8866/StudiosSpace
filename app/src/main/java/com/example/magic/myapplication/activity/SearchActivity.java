@@ -72,7 +72,7 @@ public class SearchActivity extends BaseActivity{
                 Log.i(TAG, "onClick: 点击左侧内容");
                 finish();
             }
-        });
+        }); //test_again
     }
 
     @Override
