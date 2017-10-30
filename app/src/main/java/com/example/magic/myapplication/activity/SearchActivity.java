@@ -55,12 +55,16 @@ public class SearchActivity extends BaseActivity{
                 Log.i(TAG, "onClick:输入内容 "+editTextInput);
                 cusrom_searchview.saveHistory(editTextInput);
                 cusrom_searchview.setEditTextInputNull();
-                mDialog = (SweetAlertDialog)new DialogFactory(SearchActivity.this).creatLoadingDialog("加载中,垃圾费垃圾费粮食局IE打打打");
+                mDialog = (SweetAlertDialog)new DialogFactory(SearchActivity.this).creatLoadingDialog("加载中...");
                 if ( editTextInput .equals("哈哈")){
                     //这里是登录失败,登录对话框弹出失败提示
                     mDialog.setTitleText("登陆失败")
                             .setConfirmText("确定")
                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);
+                }else{
+                    mDialog.setTitleText("登陆成功")
+                            .setConfirmText("确定")
+                            .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
                 }
             }
         }); // test
