@@ -1,6 +1,5 @@
 package com.example.magic.myapplication.activity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,10 +9,9 @@ import android.view.View;
 import com.example.magic.myapplication.R;
 import com.example.magic.myapplication.common.CustomSearchView;
 import com.example.magic.myapplication.common.CustomToolBar;
-import com.example.magic.myapplication.common.dialog.DialogFactory;
 import com.example.magic.myapplication.utils.MyToastUtils;
 import com.example.magic.myapplication.utils.NetUtils;
-import com.example.magic.myapplication.utils.StoreInfomationUtils;
+import com.pnikosis.materialishprogress.DialogFactory;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 

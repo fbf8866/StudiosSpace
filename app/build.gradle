@@ -65,6 +65,11 @@ android {
         }
     }
 
+    repositories{
+        flatDir{
+            dirs 'libs'
+        }
+    }
 
         /**多渠道打包*/
     productFlavors {
@@ -84,9 +89,11 @@ android {
             }
         }
     }
-}
 
+
+}
 dependencies {
+    compile(name: 'xAlertDialogLibrary-release',ext: 'aar')
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(path: ':IndicatorLibrary')
     compile 'com.android.support:appcompat-v7:23.0.+'
@@ -100,7 +107,7 @@ dependencies {
     compile 'com.zhy:okhttputils:2.6.2'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:25.0.+'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
     //使用三方图片加载库
-    compile project(':xAlertDialogLibrary')
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }
+
