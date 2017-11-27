@@ -19,6 +19,9 @@
         android:textSize="18sp"
         android:layout_gravity="center_horizontal"
         android:textColor="@drawable/selector_tab"
-        />
+        android:shadowColor="#ff000000"
+        android:shadowRadius="10"
+        android:shadowDx="5"
+        android:shadowDy="5"/>
 
 </LinearLayout>

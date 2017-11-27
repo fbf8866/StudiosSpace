@@ -55,6 +55,5 @@
         <item name="android:layout_marginTop">@dimen/y3</item>
         <item name="android:background">@drawable/dialog_selector</item>
     </style>
-    
-    
+
 </resources>

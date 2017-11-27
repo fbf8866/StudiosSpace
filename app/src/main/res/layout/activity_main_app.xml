@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="#D7D7D7"
+            android:background="@drawable/bg_shadow"
             android:layout_marginTop="@dimen/x30">
             <Button
                 android:layout_width="0dp"
@@ -103,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="#D7D7D7"
+            android:background="@drawable/bg_shadow"
             android:id="@+id/dd"
             android:padding="@dimen/x8"
             android:layout_marginTop="@dimen/x30">

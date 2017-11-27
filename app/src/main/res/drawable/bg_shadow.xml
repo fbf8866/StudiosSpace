@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- layer-list原理和relativelayout的原理一样,都是层级叠加的,后面添加的会盖住之前添加的,用的时候 background引用这个xml就可以-->
+    <!--  android:left="3dp" 底层的左边距离上层左边3dp, 底层的顶部，距离上层的顶部4dp,如果不做这个控制，底层和上层的左侧和上侧会重合在一起-->
+    <item
+        android:top="4dp">
+        <shape>
+            <solid android:color="#33b4b5b6"/>
+        </shape>
+    </item>
+
+    <!--   上层的右边距离底层的右边3dp,  android:right="3dp" 上层的底部距离底层的底部4dp-->
+    <item
+        android:bottom="4dp">
+        <shape>
+            <solid android:color="#fab27b"/>
+        </shape>
+    </item>
+</layer-list>
