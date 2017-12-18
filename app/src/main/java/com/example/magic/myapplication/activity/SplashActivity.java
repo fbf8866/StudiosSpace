@@ -116,10 +116,6 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
             btn_goin.setVisibility(View.GONE);
         }
     }
-    @Override
-    protected void backhome() {
-
-    }
 
     @Override
     public void onClick(View view) {

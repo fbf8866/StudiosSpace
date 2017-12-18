@@ -25,33 +25,37 @@ import com.example.magic.myapplication.activity.listener.ScreenShotListenerManag
 import java.lang.reflect.Method;
 
 
-public class ScreenShotActivity extends AppCompatActivity implements View.OnClickListener {
+public class ScreenShotActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = "ScreenShotActivity";
     private TextView tv_screenshot;
     private ImageView iv_screenshot;
     private View dview;
     private Bitmap b1;
     private Button btn_screen_shot_again;
+    private int width;
+    private int height;
+    private int statusBarHeight;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_shot);
 
-
-        findViewbyid();
-        initEvent();
+        initView();
+        initData();
     }
 
-    private void findViewbyid() {
+    @Override
+    public void initData() {
+        tv_screenshot.setOnClickListener(this);
+        btn_screen_shot_again.setOnClickListener(this);
+    }
+
+    @Override
+    public void initView() {
         tv_screenshot = (TextView)findViewById(R.id.tv_screenshot);
         iv_screenshot = (ImageView)findViewById(R.id.iv_screenshot);
         btn_screen_shot_again = (Button)findViewById(R.id.btn_screen_shot_again);
-    }
-
-    private void initEvent() {
-        tv_screenshot.setOnClickListener(this);
-        btn_screen_shot_again.setOnClickListener(this);
     }
 
     @Override
@@ -60,9 +64,6 @@ public class ScreenShotActivity extends AppCompatActivity implements View.OnClic
         bitmap = screenShot();
     }
 
-    int width;
-    int height;
-    int statusBarHeight;
     private Bitmap screenShot(){
         // View是你需要截图的View
         dview =getWindow().getDecorView();
@@ -103,4 +104,9 @@ public class ScreenShotActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    @Override
+    public void backhome() {
+        super.backhome();
+        finish();
+    }
 }

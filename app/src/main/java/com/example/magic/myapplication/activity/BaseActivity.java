@@ -122,24 +122,24 @@ public abstract class BaseActivity extends AppCompatActivity{
     public abstract void initView();
 
     /**
-     * 点击返回键时，是要推出，还是跳转到登陆界面需要子类实现
+     * 返回键默认点击提示,如果想要别的效果 可以重写这个方法
      */
-    protected abstract void backhome();
+    public  void backhome(){
+        if(System.currentTimeMillis() - mExitTime > 2000) {
+            //3.保存当前时间
+            mExitTime  = System.currentTimeMillis();
+            MyToastUtils.show(this,"再次点击退出");
+        } else {
+            //5.点击的时间差小于2000，退出。
+            MyApplication.getInstance().exit();
+            System.exit(0);
+        }
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) {
-//            backhome();
-            if(System.currentTimeMillis() - mExitTime > 2000) {
-                //3.保存当前时间
-                mExitTime  = System.currentTimeMillis();
-                MyToastUtils.show(this,"再次点击退出");
-            } else {
-                //5.点击的时间差小于2000，退出。
-//                finish();
-                MyApplication.getInstance().exit();
-                System.exit(0);
-            }
+            backhome();
             return true;
         }
         return super.onKeyDown(keyCode, event);

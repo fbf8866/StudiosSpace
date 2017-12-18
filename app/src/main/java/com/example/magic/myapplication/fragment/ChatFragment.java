@@ -32,7 +32,7 @@ public class ChatFragment extends BaseFragment {
             public void run() {
                 Log.i(TAG, "一会加载"+TAG);
                 //放开后 可以一直从小到大画圆
-//                new Thread(customView).start();
+                new Thread(customView).start();
             }
         }, 5000);
 

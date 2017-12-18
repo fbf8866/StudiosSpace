@@ -30,9 +30,6 @@ public class SearchActivity extends BaseActivity{
         setContentView(R.layout.activity_search);
         initView();
         initData();
-
-        Intent intent = new Intent(this,ScreenShotActivity.class);
-        startActivity(intent);
     }
 
     @Override
@@ -78,10 +75,6 @@ public class SearchActivity extends BaseActivity{
 
     }
 
-    @Override
-    protected void backhome() {
-        finish();
-    }
 
     @Override
     public void isNetAvaiable(NetUtils.NetType apnType) {
