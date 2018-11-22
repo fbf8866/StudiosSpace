@@ -89,6 +89,7 @@ public class NewsFragment extends BaseFragment {
         mRecyclerView.addItemDecoration(new DrawItemLine(mContext,LinearLayoutManager.HORIZONTAL));
 
         mRecyclerView.addOnScrollListener(myOnScrollListener);
+
     }
 
     @Override
