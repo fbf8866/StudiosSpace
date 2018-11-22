@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.magic.myapplication.activity.BaseActivity;
+import com.example.magic.myapplication.activity.HQActivity;
 import com.example.magic.myapplication.activity.SearchActivity;
 import com.example.magic.myapplication.adapter.MyAdapter;
 import com.example.magic.myapplication.common.CustomButton;
@@ -95,6 +96,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         initFragment();
         initView();
         initData();
+
     }
 
     private void initFragment() {
@@ -366,9 +368,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
     };
 
-    public  void backhome(){
-
-    }
 
     @Override
     public void onClick(View view) {

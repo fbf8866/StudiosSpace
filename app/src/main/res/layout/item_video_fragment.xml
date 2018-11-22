@@ -11,12 +11,14 @@
         android:layout_height="@dimen/x50"
         android:id="@+id/item_video_iv"
         android:padding="@dimen/x5"
-        android:scaleType="fitXY"/>
+        android:scaleType="centerCrop"/>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
         android:gravity="center">
         <TextView
             android:layout_width="match_parent"
@@ -32,5 +34,13 @@
             android:id="@+id/item_video_attention"/>
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="@dimen/x15"
+        android:layout_height="@dimen/y15"
+        android:id="@+id/store"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_gravity="top"
+        android:background="@drawable/store_nomal"/>
 
 </LinearLayout>

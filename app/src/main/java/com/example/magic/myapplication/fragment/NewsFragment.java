@@ -2,6 +2,7 @@ package com.example.magic.myapplication.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -15,6 +16,9 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
 import com.example.magic.myapplication.R;
+import com.example.magic.myapplication.activity.HQActivity;
+import com.example.magic.myapplication.activity.HQActivityNew;
+import com.example.magic.myapplication.activity.StoreActivity;
 import com.example.magic.myapplication.adapter.MyNewsAdapter;
 import com.example.magic.myapplication.common.DrawItemLine;
 import com.example.magic.myapplication.utils.GetScreenWidthAndHeight;
@@ -111,6 +115,8 @@ public class NewsFragment extends BaseFragment {
         @Override
         public void onItemClick(View view, int position) {
             MyToastUtils.show(mContext,"点击了"+list.get(position));
+            Intent i = new Intent(mContext, HQActivityNew.class);
+            startActivity(i);
         }
 
         @Override

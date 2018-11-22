@@ -29,11 +29,27 @@ public class VideoItemBean {
         return attention;
     }
 
+    //条目是否收藏
+    private boolean isStore;
+    public void setIsStore(boolean isStore){
+        isStore = isStore;
+    }
+    public boolean getIsStore(){
+        return isStore;
+    }
+
     //视频的连接地址
     @SerializedName("videoUrl")
     private String videoUrl;
     public String getVideoUrl(){
         return videoUrl;
+    }
+
+    //长按条目,checkbox是否显示的标示
+    @SerializedName("checkboxIsVisiable")
+    private boolean checkboxIsVisiable;
+    public boolean getCheckboxIsVisiable(){
+        return checkboxIsVisiable;
     }
 
     public VideoItemBean(String introduction,String iconId, String attention,String videoUrl){

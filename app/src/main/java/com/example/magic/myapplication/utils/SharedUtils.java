@@ -2,9 +2,21 @@ package com.example.magic.myapplication.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Base64;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.StreamCorruptedException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,19 +28,30 @@ public class SharedUtils {
      * 保存在手机里面的文件名
      */
     public static final String FILE_NAME = "share_data";
+    public static SharedPreferences sp;
+    private static SharedUtils instance = null;
+    public static SharedUtils getInstance(Context context){
+        if (null == instance){
+            synchronized (SharedUtils.class){
+                if (null == instance){
+                    instance = new SharedUtils();
+                }
+            }
+        }
+        if (null == sp){
+            sp = context.getSharedPreferences(FILE_NAME,Context.MODE_PRIVATE);
+        }
+        return instance;
+    }
 
     /**
      * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
      *
-     * @param context
      * @param key
      * @param object
      */
-    public static void put(Context context, String key, Object object)
+    public  void put( String key, Object object)
     {
-
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
-                Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
         if (object instanceof String)
@@ -57,15 +80,12 @@ public class SharedUtils {
     /**
      * 得到保存数据的方法，我们根据默认值得到保存的数据的具体类型，然后调用相对于的方法获取值
      *
-     * @param context
      * @param key
      * @param defaultObject
      * @return
      */
-    public static Object get(Context context, String key, Object defaultObject)
+    public  Object get( String key, Object defaultObject)
     {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
-                Context.MODE_PRIVATE);
 
         if (defaultObject instanceof String)
         {
@@ -89,13 +109,10 @@ public class SharedUtils {
 
     /**
      * 移除某个key值已经对应的值
-     * @param context
      * @param key
      */
-    public static void remove(Context context, String key)
+    public  void remove( String key)
     {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
-                Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.remove(key);
         SharedPreferencesCompat.apply(editor);
@@ -103,12 +120,9 @@ public class SharedUtils {
 
     /**
      * 清除所有数据
-     * @param context
      */
-    public static void clear(Context context)
+    public  void clear()
     {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
-                Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.clear();
         SharedPreferencesCompat.apply(editor);
@@ -116,27 +130,21 @@ public class SharedUtils {
 
     /**
      * 查询某个key是否已经存在
-     * @param context
      * @param key
      * @return
      */
-    public static boolean contains(Context context, String key)
+    public  boolean contains( String key)
     {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
-                Context.MODE_PRIVATE);
         return sp.contains(key);
     }
 
     /**
      * 返回所有的键值对
      *
-     * @param context
      * @return
      */
-    public static Map<String, ?> getAll(Context context)
+    public  Map<String, ?> getAll()
     {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
-                Context.MODE_PRIVATE);
         return sp.getAll();
     }
 
@@ -146,9 +154,9 @@ public class SharedUtils {
      * @author zhy
      *
      */
-    private static class SharedPreferencesCompat
+    private  static class SharedPreferencesCompat
     {
-        private static final Method sApplyMethod = findApplyMethod();
+        private  static final Method sApplyMethod = findApplyMethod();
 
         /**
          * 反射查找apply的方法
@@ -156,7 +164,7 @@ public class SharedUtils {
          * @return
          */
         @SuppressWarnings({ "unchecked", "rawtypes" })
-        private static Method findApplyMethod()
+        private  static Method findApplyMethod()
         {
             try
             {
@@ -193,4 +201,66 @@ public class SharedUtils {
             editor.commit();
         }
     }
+
+    public  void putList(String key,List list){
+        SharedPreferences.Editor edit = sp.edit();
+        try {
+            String liststr =ListToString(list);
+            edit.putString(key, liststr);
+            edit.commit();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public  List getList(String key){
+        String liststr = sp.getString(key, "");
+        try {
+            List list = StringToList(liststr);
+            return list;
+        } catch (StreamCorruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public  String ListToString(List list)
+            throws IOException {
+        //创建ByteArrayOutputStream对象，用来存放字节文件。
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        //得到的字符放到到ObjectOutputStream
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(
+                byteArrayOutputStream);
+        // writeObject 方法负责写入特定类的对象的状态，以便相应的 readObject 方法可以还原它
+        objectOutputStream.writeObject(list);
+        //Base64.encode将字节文件转换成Base64编码存在String中
+        String string = new String(Base64.encode(
+                byteArrayOutputStream.toByteArray(), Base64.DEFAULT));
+        // 关闭Stream
+        objectOutputStream.close();
+        byteArrayOutputStream.close();
+        return string;
+
+    }
+
+    @SuppressWarnings("unchecked")
+    public  List StringToList(String string)throws StreamCorruptedException, IOException,ClassNotFoundException {
+        byte[] b = Base64.decode(string.getBytes(),Base64.DEFAULT);
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
+                b);
+        ObjectInputStream objectInputStream = new ObjectInputStream(
+                byteArrayInputStream);
+        List list = (List) objectInputStream
+                .readObject();
+        // 关闭Stream
+        objectInputStream.close();
+        byteArrayInputStream.close();
+        return list;
+    }
+
+
 }

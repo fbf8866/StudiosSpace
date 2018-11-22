@@ -159,7 +159,7 @@ public class GrilFragment extends BaseFragment implements View.OnClickListener {
                         if (null != cookieBean){
                             CookieBean.SendSmsBeanCookieBean sendSmsBean = cookieBean.getSendSmsBean();
                             cookie = sendSmsBean.getSessionId();
-                            SharedUtils.put(mContext,"Cookie",cookie);
+                            SharedUtils.getInstance(mContext).put("Cookie",cookie);
                         }
                     }
                 });

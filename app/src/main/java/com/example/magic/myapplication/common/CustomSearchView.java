@@ -356,7 +356,7 @@ public class CustomSearchView extends LinearLayout implements View.OnClickListen
             @Override
             protected FilterResults performFiltering(CharSequence charSequence) {
                 FilterResults result = new FilterResults();
-                List<String> data = new ArrayList<>();
+                List<String> data ;
                 if (TextUtils.isEmpty(charSequence)) {//prefix过滤字符串 如果当前输入的字符串为空则显示全部的数据
                     data = mHistory_count;
                     result.values = data;

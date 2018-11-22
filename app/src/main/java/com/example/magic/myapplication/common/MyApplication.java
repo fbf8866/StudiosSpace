@@ -6,6 +6,7 @@ import android.content.Context;
 
 import com.example.magic.myapplication.R;
 import com.example.magic.myapplication.utils.NetsWorkUtils;
+import com.example.magic.myapplication.utils.SaveErrorLogUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.cookie.CookieJarImpl;
 import com.zhy.http.okhttp.cookie.store.PersistentCookieStore;
@@ -49,6 +50,17 @@ public class MyApplication extends Application {
         super.onCreate();
         context = getApplicationContext();
         instance = this;
+        /**
+         *  保存崩溃日志
+         *  保存路径 /sdcard/happy_error/crash_log
+          */
+//        SaveErrorLogUtils.getInstance().init(context.getApplicationContext(),
+//                "娱乐",
+//                "1.0.1",
+//                "0",
+//                "0",
+//                "0");
+
 //        OkHttpClient okHttpClient = new OkHttpClient.Builder()
 //                .connectTimeout(TIMEOUT, TimeUnit.SECONDS) /** 设置连接的超时时间*/
 //                .writeTimeout(TIMEOUT, TimeUnit.SECONDS).readTimeout(TIMEOUT, TimeUnit.SECONDS)  /*** 设置响应的超时时间*/

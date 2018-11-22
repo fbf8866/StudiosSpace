@@ -158,7 +158,9 @@ public abstract class BaseActivity extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        getApplicationContext().unregisterReceiver(receiver);
+        if (null !=receiver){
+            getApplicationContext().unregisterReceiver(receiver);
+        }
     }
 
     public  void isNetAvaiable(NetUtils.NetType apnType){}

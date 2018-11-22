@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.magic.myapplication.R;
 
@@ -31,6 +32,8 @@ public class CustomToolBar extends Toolbar {
     private ImageView custom_child_left_img;
     private Drawable drawable_right;
     private Drawable drawable_left;
+    private TextView custom_child_title;
+
     public CustomToolBar(Context context) {
         super(context);
         initView();
@@ -64,8 +67,24 @@ public class CustomToolBar extends Toolbar {
         }
         custom_child_search = (ImageView) mView.findViewById(R.id.custom_child_search);
         custom_child_left_img = (ImageView) mView.findViewById(R.id.custom_child_left_img);
+        custom_child_title = (TextView) mView.findViewById(R.id.custom_child_title);
         LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         addView(mView, lp);
+    }
+
+    //设置title的文字
+    public void setCustomTitle(String title){
+        custom_child_title.setText(title);
+    }
+
+    //设置title的字体颜色
+    public void setCustomTitleColor(int color){
+        custom_child_title.setTextColor(color);
+    }
+
+    //设置title的字体大小
+    public void setCustomTitleSize(float size){
+        custom_child_title.setTextSize(size);
     }
 
     //左侧返回按钮点击

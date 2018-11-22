@@ -19,6 +19,13 @@
         android:layout_marginLeft="10dp"
         android:layout_gravity="left|center_vertical"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/custom_child_title"
+        android:textSize="18sp"
+        android:layout_gravity="center"/>
+
     <ImageView
         android:id="@+id/custom_child_search"
         android:layout_width="wrap_content"
