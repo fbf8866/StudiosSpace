@@ -3,6 +3,7 @@ package com.example.magic.myapplication.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -69,6 +70,7 @@ public class NewsFragment extends BaseFragment {
         //第二个和第三个参数 是刷新进度条展示的相对于默认的展示位置,start和end组成一个范围
         mSwiperefreshlayout.setProgressViewOffset(true, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
         mSwiperefreshlayout.setOnRefreshListener(myOnRefreshListener);
+        //-------------------------
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.mRecyclerView);
 		 //设置固定大小
